@@ -1,5 +1,5 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
-Title = "Suntai V5",
+Title = "Suntai V6",
 Text = "Thanks for using Suntai!", 
 Duration = 30 
 })
@@ -7,7 +7,7 @@ Duration = 30
 --GUI--
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/NightBedCommunityOfficial/main/Theme/Night/bed/lol/XD/Chill/long/kavo.lua"))()
-local Window = Library.CreateLib("Suntai V5", "BloodTheme")
+local Window = Library.CreateLib("Suntai V6", "BloodTheme")
 
 --TABS--
 
@@ -15,14 +15,20 @@ local Credits = Window:NewTab("Credits")
 local Updates = Window:NewTab("Updates")
 local Combat = Window:NewTab("Combat")
 local Blatant = Window:NewTab("Blatant")
-local Cape = Window:NewTab("Cape")
+local Autotoxic = Window:NewTab("AutoToxic")
+local Esp = Window:NewTab("Esp")
 local Animation = Window:NewTab("Animations")
 
 --Sections--
 
 local Credits = Credits:NewSection("Credits")
-local Cape = Cape:NewSection("Cape")
+
+local Autotoxic = Autotoxic:NewSection("Auto Toxic")
+
+local Esp = Esp:NewSection("Esp")
+
 local Animation = Animation:NewSection("Animations")
+
 local Updates = Updates:NewSection("Updates")
 
 --SCRIPTS--
@@ -150,7 +156,7 @@ TextLabel_2.BorderSizePixel = 0
 TextLabel_2.Position = UDim2.new(-0.000772226602, 0, 0.67410934, 0)
 TextLabel_2.Size = UDim2.new(1, 0, 1, 0)
 TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "V5"
+TextLabel_2.Text = "V6"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 24.000
@@ -686,8 +692,669 @@ runcode(function()
 	end)
 end)
 
-Cape:NewButton("Jn Hh Gaming Cape", "Jn Hh Gaming Cape", function()
+Autotoxic:NewButton("Spam", "Spams our name", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Please be patient.",
+Text = "Loading Spam..", 
+
+Button1 = "Ok",
+Duration = 30 
+})
+local choosePlayer = false --set true if you want to insult one person only
+local chosenPlayer = "" --if chosePlayer = true, type playername in quotes
+
+local Taunts = { --add as many as you wish
+"SUNTAI ON TOP!",
+"SUNTAI ON TOP!"
+}
+
+local Remote = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+local function Insult()
+   local players = game.Players:GetChildren()
+   local howManyPlayers = #players
+   
+   local ran = math.random(1,howManyPlayers)
+   local chosenOne = players[ran]
+   local chance = math.random(1,20)
+   
+   if choosePlayer == true then
+       Remote:FireServer(chosenPlayer.." " ..Taunts[math.random(1,#Taunts)],"All")
+   elseif chance <= 5 then
+       Remote:FireServer(chosenOne.Name.." " ..Taunts[math.random(1,#Taunts)],"All")
+   else
+       Remote:FireServer(Taunts[math.random(1,#Taunts)],"All")
+   end
+end
+   
+
+local randTime = math.random(5,15)
+
+while true and wait(randTime) do
+   Insult()
+end
+end)
+
+Autotoxic:NewButton("AutoToxic", "Turns on autotoxic", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Please be patient.",
+Text = "Loading AutoToxic..", 
+
+Button1 = "Ok",
+Duration = 30 
+})
+local choosePlayer = false --set true if you want to insult one person only
+local chosenPlayer = "" --if chosePlayer = true, type playername in quotes
+
+local Taunts = { --add as many as you wish
+  "EZ BOZO GET BETTER.",
+  "You have skill issue i mean YOURE A KID L",
+  "CHEEKI BREEKI DAYUM.",
+  "Timmy says Omg a noob haker1!1!1!1!1",
+  "Your father at brazil.",
+"NO BOZO YOURE NOT FILIPINO REBORN.",
+"HAPPY PRIDE MONTHflag_br",
+"Why not buy SYNAPSE POOR",
+"I added you to top 5 Brazilian Gamers.",
+"sytroskid made by vamp.",
+"Have depression? IDC KID.",
+"Eat Baklava for chilinflag_tr",
+"FOR MOTHERLAND URAA!!!.",
+"No timmy i dont wanna buy rtx to you",
+"Youre a 9 year old adopt me player",
+"hello pls bobux",
+"Get better",
+"Client Name is Suntai",
+"Hey comrades a noob killed",
+"URAAA",
+"Monke Break",
+"Go Learn print() function",
+"local anticheat = true",
+"if i am kid? come to vc",
+"github : dorukqpx",
+"Suntai > nova6 , cry about that",
+"This message to you old friend Vamp -SDoritos",
+}
+
+local Remote = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+local function Insult()
+   local players = game.Players:GetChildren()
+   local howManyPlayers = #players
+   
+   local ran = math.random(1,howManyPlayers)
+   local chosenOne = players[ran]
+   local chance = math.random(1,20)
+   
+   if choosePlayer == true then
+       Remote:FireServer(chosenPlayer.." " ..Taunts[math.random(1,#Taunts)],"All")
+   elseif chance <= 5 then
+       Remote:FireServer(chosenOne.Name.." " ..Taunts[math.random(1,#Taunts)],"All")
+   else
+       Remote:FireServer(Taunts[math.random(1,#Taunts)],"All")
+   end
+end
+   
+
+local randTime = math.random(5,15)
+
+while true and wait(randTime) do
+   Insult()
+end
+end)
+
+Esp:NewLabel("Only use one!")
+
+Esp:NewButton("Tracer Esp", "Enables Tracer Esp", function()
+local lplr = game.Players.LocalPlayer
+local camera = game:GetService("Workspace").CurrentCamera
+local CurrentCamera = workspace.CurrentCamera
+local worldToViewportPoint = CurrentCamera.worldToViewportPoint
+
+_G.TeamCheck = false -- Use True or False to toggle TeamCheck
+
+for i,v in pairs(game.Players:GetChildren()) do
+    local Tracer = Drawing.new("Line")
+    Tracer.Visible = false
+    Tracer.Color = Color3.new(255, 0, 0)
+    Tracer.Thickness = 1
+    Tracer.Transparency = 1
+
+    function lineesp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+                if OnScreen then
+                    Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+                    Tracer.To = Vector2.new(Vector.X, Vector.Y)
+
+                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                        --//Teammates
+                        Tracer.Visible = false
+                    else
+                        --//Enemies
+                        Tracer.Visible = true
+                    end
+                else
+                    Tracer.Visible = false
+                end
+            else
+                Tracer.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(lineesp)()
+end
+
+game.Players.PlayerAdded:Connect(function(v)
+    local Tracer = Drawing.new("Line")
+    Tracer.Visible = false
+    Tracer.Color = Color3.new(1,1,1)
+    Tracer.Thickness = 1
+    Tracer.Transparency = 1
+
+    function lineesp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+
+                if OnScreen then
+                    Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+                    Tracer.To = Vector2.new(Vector.X, Vector.Y)
+
+                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                        --//Teammates
+                        Tracer.Visible = false
+                    else
+                        --//Enemies
+                        Tracer.Visible = true
+                    end
+                else
+                    Tracer.Visible = false
+                end
+            else
+                Tracer.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(lineesp)()
+end)
+end)
+
+Esp:NewButton("Skeleton Esp", "Enables skeleton esp", function()
+local function addskeletonesp(player)
+    spawn(function()
+        local supported = true
+        local parttbl = {"Head", "LowerTorso", "RightUpperLeg", "LeftUpperLeg", "RightLowerLeg", "LeftLowerLeg", "RightFoot", "LeftFoot", "LeftUpperArm", "RightUpperArm", "RightLowerArm", "LeftLowerArm", "LeftHand", "RightHand"}
+        for i,v in pairs(parttbl) do
+            if player.Character:FindFirstChild(v) == nil then
+                supported = false
+            end
+        end
+        if supported then
+            function createline(from, to)
+                local Camera = Workspace.CurrentCamera
+                local Line = Drawing.new("Line")
+                Line.Visible = true
+                Line.From = Vector2.new(from.X, from.Y)
+                Line.To = Vector2.new(to.X, to.Y)
+                Line.Color = Color3.fromRGB(0, 255, 0)
+                Line.Thickness = 1.5
+                Line.Transparency = 1
+                return Line
+            end
+            
+            function getpos(pos)
+                return Vector2.new(pos.X, pos.Y)
+            end
+            
+            local Camera = Workspace.CurrentCamera
+            
+            local TopTorso = Camera:WorldToViewportPoint(player.Character.Head.Position - Vector3.new(0,0.7,0))
+            local BottomTorso = Camera:WorldToViewportPoint(player.Character.LowerTorso.Position - Vector3.new(0,0.2,0))
+            
+            local MainLine = createline(TopTorso, BottomTorso)
+            
+            local RightLeg = Camera:WorldToViewportPoint(player.Character.RightUpperLeg.Position + Vector3.new(0,0.2,0))
+            local RightLegLine = createline(BottomTorso, RightLeg)
+            
+            local LeftLeg = Camera:WorldToViewportPoint(player.Character.LeftUpperLeg.Position + Vector3.new(0,0.2,0))
+            local LeftLegLine = createline(BottomTorso, LeftLeg)
+            
+            local RightKnee = Camera:WorldToViewportPoint(player.Character.RightLowerLeg.Position + Vector3.new(0,0.2,0))
+            local RightKneeLine = createline(RightLeg, RightKnee)
+            
+            local LeftKnee = Camera:WorldToViewportPoint(player.Character.LeftLowerLeg.Position + Vector3.new(0,0.2,0))
+            local LeftKneeLine = createline(LeftLeg, LeftKnee)
+            
+            local RightFoot = Camera:WorldToViewportPoint(player.Character.RightFoot.Position)
+            local RightFootLine = createline(RightKnee, RightFoot)
+            
+            local LeftFoot = Camera:WorldToViewportPoint(player.Character.LeftFoot.Position)
+            local LeftFootLine = createline(LeftKnee, LeftFoot)
+            
+            local LeftArm = Camera:WorldToViewportPoint(player.Character.LeftUpperArm.Position + Vector3.new(0,0.2,0))
+            local LeftLine = createline(TopTorso, LeftArm)
+            
+            local RightArm = Camera:WorldToViewportPoint(player.Character.RightUpperArm.Position + Vector3.new(0,0.2,0))
+            local RightLine = createline(TopTorso, RightArm)
+            
+            local RightElbow = Camera:WorldToViewportPoint(player.Character.RightLowerArm.Position + Vector3.new(0,0.2,0))
+            local RightElbowLine = createline(RightArm, RightElbow)
+            
+            local LeftElbow = Camera:WorldToViewportPoint(player.Character.LeftLowerArm.Position + Vector3.new(0,0.2,0))
+            local LeftElbowLine = createline(LeftArm, LeftElbow)
+            
+            local LeftHand = Camera:WorldToViewportPoint(player.Character.LeftHand.Position)
+            local LeftHandLine = createline(LeftElbow, LeftHand)
+            
+            local RightHand = Camera:WorldToViewportPoint(player.Character.RightHand.Position)
+            local RightHandLine = createline(RightElbow, RightHand)
+            
+            game:GetService("RunService").RenderStepped:Connect(function()
+                local Camera = Workspace.CurrentCamera
+                if player.Character ~= nil and player.Character:FindFirstChild("Humanoid") ~= nil and player.Character:FindFirstChild("HumanoidRootPart") ~= nil and player.Character:FindFirstChild("Humanoid").Health > 0 then
+                    local Vector, onScreen = Camera:worldToViewportPoint(player.Character.HumanoidRootPart.Position)
+                    
+                    local TopTorso = Camera:WorldToViewportPoint(player.Character.Head.Position - Vector3.new(0,0.7,0))
+                    local BottomTorso = Camera:WorldToViewportPoint(player.Character.LowerTorso.Position - Vector3.new(0,0.2,0))
+                    local RightLeg = Camera:WorldToViewportPoint(player.Character.RightUpperLeg.Position + Vector3.new(0,0.2,0))
+                    local LeftLeg = Camera:WorldToViewportPoint(player.Character.LeftUpperLeg.Position + Vector3.new(0,0.2,0))
+                    local RightKnee = Camera:WorldToViewportPoint(player.Character.RightLowerLeg.Position + Vector3.new(0,0.2,0))
+                    local LeftKnee = Camera:WorldToViewportPoint(player.Character.LeftLowerLeg.Position + Vector3.new(0,0.2,0))
+                    local RightFoot = Camera:WorldToViewportPoint(player.Character.RightFoot.Position)
+                    local LeftFoot = Camera:WorldToViewportPoint(player.Character.LeftFoot.Position)
+                    local LeftArm = Camera:WorldToViewportPoint(player.Character.LeftUpperArm.Position + Vector3.new(0,0.2,0))
+                    local RightArm = Camera:WorldToViewportPoint(player.Character.RightUpperArm.Position + Vector3.new(0,0.2,0))
+                    local RightElbow = Camera:WorldToViewportPoint(player.Character.RightLowerArm.Position + Vector3.new(0,0.2,0))
+                    local LeftElbow = Camera:WorldToViewportPoint(player.Character.LeftLowerArm.Position + Vector3.new(0,0.2,0))
+                    local LeftHand = Camera:WorldToViewportPoint(player.Character.LeftHand.Position)
+                    local RightHand = Camera:WorldToViewportPoint(player.Character.RightHand.Position)
+                    
+                    RightFootLine.From = getpos(Camera:WorldToViewportPoint(player.Character.RightLowerLeg.Position + Vector3.new(0,0.2,0)))
+                    LeftFootLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LeftLowerLeg.Position + Vector3.new(0,0.2,0)))
+                    LeftKneeLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LeftUpperLeg.Position + Vector3.new(0,0.2,0)))
+                    RightKneeLine.From = getpos(Camera:WorldToViewportPoint(player.Character.RightUpperLeg.Position + Vector3.new(0,0.2,0)))
+                    RightLegLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LowerTorso.Position - Vector3.new(0,0.2,0)))
+                    LeftLegLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LowerTorso.Position - Vector3.new(0,0.2,0)))
+                    LeftHandLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LeftLowerArm.Position + Vector3.new(0,0.2,0)))
+                    RightHandLine.From = getpos(Camera:WorldToViewportPoint(player.Character.RightLowerArm.Position + Vector3.new(0,0.2,0)))
+                    MainLine.From = getpos(Camera:WorldToViewportPoint(player.Character.Head.Position - Vector3.new(0,0.7,0)))
+                    LeftLine.From = getpos(Camera:WorldToViewportPoint(player.Character.Head.Position - Vector3.new(0,0.7,0)))
+                    RightLine.From = getpos(Camera:WorldToViewportPoint(player.Character.Head.Position - Vector3.new(0,0.7,0)))
+                    RightElbowLine.From = getpos(Camera:WorldToViewportPoint(player.Character.RightUpperArm.Position + Vector3.new(0,0.2,0)))
+                    LeftElbowLine.From = getpos(Camera:WorldToViewportPoint(player.Character.LeftUpperArm.Position + Vector3.new(0,0.2,0)))
+                    
+                    RightFootLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightFoot.Position))
+                    LeftFootLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftFoot.Position))
+                    LeftKneeLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftLowerLeg.Position + Vector3.new(0,0.2,0)))
+                    RightKneeLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightLowerLeg.Position + Vector3.new(0,0.2,0)))
+                    RightLegLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightUpperLeg.Position + Vector3.new(0,0.2,0)))
+                    LeftLegLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftUpperLeg.Position + Vector3.new(0,0.2,0)))
+                    LeftHandLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftHand.Position))
+                    RightHandLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightHand.Position))
+                    MainLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LowerTorso.Position - Vector3.new(0,0.2,0)))
+                    LeftLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftUpperArm.Position + Vector3.new(0,0.2,0)))
+                    RightLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightUpperArm.Position + Vector3.new(0,0.2,0)))
+                    RightElbowLine.To = getpos(Camera:WorldToViewportPoint(player.Character.RightLowerArm.Position + Vector3.new(0,0.2,0)))
+                    LeftElbowLine.To = getpos(Camera:WorldToViewportPoint(player.Character.LeftLowerArm.Position + Vector3.new(0,0.2,0)))
+                    
+                    if onScreen then
+                        RightFootLine.Visible = true
+                        LeftFootLine.Visible = true
+                        LeftKneeLine.Visible = true
+                        RightKneeLine.Visible = true
+                        RightLegLine.Visible = true
+                        LeftLegLine.Visible = true
+                        LeftHandLine.Visible = true
+                        RightHandLine.Visible = true
+                        MainLine.Visible = true
+                        LeftLine.Visible = true
+                        RightLine.Visible = true
+                        RightElbowLine.Visible = true
+                        LeftElbowLine.Visible = true
+                    else
+                        RightFootLine.Visible = false
+                        LeftFootLine.Visible = false
+                        LeftKneeLine.Visible = false
+                        RightKneeLine.Visible = false
+                        RightLegLine.Visible = false
+                        LeftLegLine.Visible = false
+                        LeftHandLine.Visible = false
+                        RightHandLine.Visible = false
+                        MainLine.Visible = false
+                        LeftLine.Visible = false
+                        RightLine.Visible = false
+                        RightElbowLine.Visible = false
+                        LeftElbowLine.Visible = false
+                    end
+                else
+                    RightFootLine:Remove()
+                    LeftFootLine:Remove()
+                    LeftKneeLine:Remove()
+                    RightKneeLine:Remove()
+                    RightLegLine:Remove()
+                    LeftLegLine:Remove()
+                    LeftHandLine:Remove()
+                    RightHandLine:Remove()
+                    MainLine:Remove()
+                    LeftLine:Remove()
+                    RightLine:Remove()
+                    RightElbowLine:Remove()
+                    LeftElbowLine:Remove()
+                end
+            end)
+        end
+    end)
+end
+for i,v in pairs(game.Players:GetChildren()) do
+    addskeletonesp(v)
+end
+end)
+
+Esp:NewButton("Box Esp", "Enables Box Esp", function()
+local Player = game:GetService("Players").LocalPlayer
+local Camera = game:GetService("Workspace").CurrentCamera
+local Mouse = Player:GetMouse()
+
+local function Dist(pointA, pointB) -- magnitude errors for some reason  : (
+    return math.sqrt(math.pow(pointA.X - pointB.X, 2) + math.pow(pointA.Y - pointB.Y, 2))
+end
+
+local function GetClosest(points, dest)
+    local min  = math.huge 
+    local closest = nil
+    for _,v in pairs(points) do
+        local dist = Dist(v, dest)
+        if dist < min then
+            min = dist
+            closest = v
+        end
+    end
+    return closest
+end
+
+local function DrawESP(plr)
+    local Box = Drawing.new("Quad")
+    Box.Visible = false
+    Box.PointA = Vector2.new(0, 0)
+    Box.PointB = Vector2.new(0, 0)
+    Box.PointC = Vector2.new(0, 0)
+    Box.PointD = Vector2.new(0, 0)
+    Box.Color = Color3.fromRGB(255, 255, 255)
+    Box.Thickness = 2
+    Box.Transparency = 1
+
+    local function Update()
+        local c
+        c = game:GetService("RunService").RenderStepped:Connect(function()
+            if plr.Character ~= nil and plr.Character:FindFirstChildOfClass("Humanoid") ~= nil and plr.Character:FindFirstChild("HumanoidRootPart") ~= nil and plr.Character:FindFirstChildOfClass("Humanoid").Health > 0 and plr.Character:FindFirstChild("Head") ~= nil then
+                local pos, vis = Camera:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position)
+                if vis then 
+                    local points = {}
+                    local c = 0
+                    for _,v in pairs(plr.Character:GetChildren()) do
+                        if v:IsA("BasePart") then
+                            c = c + 1
+                            local p = Camera:WorldToViewportPoint(v.Position)
+                            if v.Name == "HumanoidRootPart" then
+                                p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(0, 0, -v.Size.Z)).p)
+                            elseif v.Name == "Head" then
+                                p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(0, v.Size.Y/2, v.Size.Z/1.25)).p)
+                            elseif string.match(v.Name, "Left") then
+                                p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(-v.Size.X/2, 0, 0)).p)
+                            elseif string.match(v.Name, "Right") then
+                                p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(v.Size.X/2, 0, 0)).p)
+                            end
+                            points[c] = p
+                        end
+                    end
+                    local Left = GetClosest(points, Vector2.new(0, pos.Y))
+                    local Right = GetClosest(points, Vector2.new(Camera.ViewportSize.X, pos.Y))
+                    local Top = GetClosest(points, Vector2.new(pos.X, 0))
+                    local Bottom = GetClosest(points, Vector2.new(pos.X, Camera.ViewportSize.Y))
+
+                    if Left ~= nil and Right ~= nil and Top ~= nil and Bottom ~= nil then
+                        Box.PointA = Vector2.new(Right.X, Top.Y)
+                        Box.PointB = Vector2.new(Left.X, Top.Y)
+                        Box.PointC = Vector2.new(Left.X, Bottom.Y)
+                        Box.PointD = Vector2.new(Right.X, Bottom.Y)
+
+                        Box.Visible = true
+                    else 
+                        Box.Visible = false
+                    end
+                else 
+                    Box.Visible = false
+                end
+            else
+                Box.Visible = false
+                if game.Players:FindFirstChild(plr.Name) == nil then
+                    c:Disconnect()
+                end
+            end
+        end)
+    end
+    coroutine.wrap(Update)()
+end
+
+for _,v in pairs(game:GetService("Players"):GetChildren()) do
+    if v.Name ~= Player.Name then 
+        DrawESP(v)
+    end
+end
+
+game:GetService("Players").PlayerAdded:Connect(function(v)
+    DrawESP(v)
+end)
+end)
+
+Esp:NewButton("Name Esp", "Enables name esp", function()
+local esp_settings = { ---- table for esp settings 
+    textsize = 8,
+    colour = 255,255,255
+}
+ 
+local gui = Instance.new("BillboardGui")
+local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
+ 
+ 
+ 
+gui.Name = "Cracked esp"; ---- properties of the esp
+gui.ResetOnSpawn = false
+gui.AlwaysOnTop = true;
+gui.LightInfluence = 0;
+gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+esp.Text = ""
+esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+esp.BorderSizePixel = 4;
+esp.BorderColor3 = Color3.new(esp_settings.colour)
+esp.BorderSizePixel = 0
+esp.Font = "GothamSemibold"
+esp.TextSize = esp_settings.textsize
+esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
+ 
+game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
+    for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+        if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil  then -- craeting checks for team check, local player etc
+            esp.Text = "{"..v.Name.."}"
+            gui:Clone().Parent = v.Character.Head
+    end
+end
+end)
+end)
+
+local Tab = Window:NewTab("Cape R15")
+local Section = Tab:NewSection("Vape Cape")
+Section:NewButton("Vape cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(0,0,0)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9608953346"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("Rektsky Cape")
+Section:NewButton("Rektsky Cape", "ButtonInfo", function()
 local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+  if lplr.Character:FindFirstChild("Torso") then
+	torso = lplr.Character.Torso
+  else
+	torso = lplr.Character.UpperTorso
+  end
+  local CapeP = Instance.new("Part", torso.Parent)
+  CapeP.Name = "Cape"
+  CapeP.Anchored = false
+  CapeP.CanCollide = false
+  CapeP.TopSurface = 0
+  CapeP.BottomSurface = 0
+  CapeP.Color = Color3.fromRGB(255,255,255)
+  CapeP.FormFactor = "Custom"
+  CapeP.Size = Vector3.new(0.2,0.2,0.2)
+  local decal = Instance.new("Decal", CapeP)
+  decal.Texture = "http://www.roblox.com/asset/?id=9600268824"
+  decal.Face = "Back"
+  local msh = Instance.new("BlockMesh", CapeP)
+  msh.Scale = Vector3.new(9,17.5,0.5)
+  local motor = Instance.new("Motor", CapeP)
+  motor.Part0 = CapeP
+  motor.Part1 = torso
+  motor.MaxVelocity = 0.01
+  motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+  motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+  local wave = false
+  repeat wait(1/44)
+	decal.Transparency = torso.Transparency
+	local ang = 0.1
+	local oldmag = torso.Velocity.magnitude
+	local mv = 0.002
+	if wave then
+	  ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+	  wave = false
+	else
+	  wave = true
+	end
+	ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+	motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+	motor.DesiredAngle = -ang
+	if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+	  motor.MaxVelocity = 0.04
+	end
+	repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+	if torso.Velocity.magnitude < 0.1 then
+	  wait(0.1)
+	end
+  until not CapeP or CapeP.Parent ~= torso.Parent
+end
+end)
+local Section = Tab:NewSection("Future Cape")
+Section:NewButton("Future Cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(34,34,34)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9667893961"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("JN HH Cape")
+Section:NewButton("JN HH Cape", "ButtonInfo", function()
+     local player = game:GetService("Players")
 local lplr = player.LocalPlayer
 if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
       if lplr.Character:FindFirstChild("Torso") then
@@ -706,6 +1373,447 @@ if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
       CapeP.Size = Vector3.new(0.2,0.2,0.2)
       local decal = Instance.new("Decal", CapeP)
       decal.Texture = "http://www.roblox.com/asset/?id=9685546949"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("TanqR Cape")
+Section:NewButton("TanqR Cape", "ButtonInfo", function()
+      local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(34,34,34)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9646618887"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("Lithium Lite Cape")
+Section:NewButton("Lithium Lite Cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(150,117,206)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9685587041"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Tab = Window:NewTab("Cape R6")
+local Section = Tab:NewSection("Vape Cape")
+Section:NewButton("Vape cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(0,0,0)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9608953346"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("Rektsky Cape")
+Section:NewButton("Rektsky Cape", "ButtonInfo", function()
+local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+  if lplr.Character:FindFirstChild("Torso") then
+	torso = lplr.Character.Torso
+  else
+	torso = lplr.Character.UpperTorso
+  end
+  local CapeP = Instance.new("Part", torso.Parent)
+  CapeP.Name = "Cape"
+  CapeP.Anchored = false
+  CapeP.CanCollide = false
+  CapeP.TopSurface = 0
+  CapeP.BottomSurface = 0
+  CapeP.Color = Color3.fromRGB(255,255,255)
+  CapeP.FormFactor = "Custom"
+  CapeP.Size = Vector3.new(0.2,0.2,0.2)
+  local decal = Instance.new("Decal", CapeP)
+  decal.Texture = "http://www.roblox.com/asset/?id=9600268824"
+  decal.Face = "Back"
+  local msh = Instance.new("BlockMesh", CapeP)
+  msh.Scale = Vector3.new(9,17.5,0.5)
+  local motor = Instance.new("Motor", CapeP)
+  motor.Part0 = CapeP
+  motor.Part1 = torso
+  motor.MaxVelocity = 0.01
+  motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+  motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+  local wave = false
+  repeat wait(1/44)
+	decal.Transparency = torso.Transparency
+	local ang = 0.1
+	local oldmag = torso.Velocity.magnitude
+	local mv = 0.002
+	if wave then
+	  ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+	  wave = false
+	else
+	  wave = true
+	end
+	ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+	motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+	motor.DesiredAngle = -ang
+	if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+	  motor.MaxVelocity = 0.04
+	end
+	repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+	if torso.Velocity.magnitude < 0.1 then
+	  wait(0.1)
+	end
+  until not CapeP or CapeP.Parent ~= torso.Parent
+end
+end)
+local Section = Tab:NewSection("Future Cape")
+Section:NewButton("Future Cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(34,34,34)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9667893961"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("JN HH Cape")
+Section:NewButton("JN HH Cape", "ButtonInfo", function()
+     local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(34,34,34)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9685546949"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("TanqR Cape")
+Section:NewButton("TanqR Cape", "ButtonInfo", function()
+      local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(34,34,34)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9646618887"
+      decal.Face = "Back"
+      local msh = Instance.new("BlockMesh", CapeP)
+      msh.Scale = Vector3.new(9,17.5,0.5)
+      local motor = Instance.new("Motor", CapeP)
+      motor.Part0 = CapeP
+      motor.Part1 = torso
+      motor.MaxVelocity = 0.01
+      motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+      motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+      local wave = false
+      repeat wait(1/44)
+        decal.Transparency = torso.Transparency
+        local ang = 0.1
+        local oldmag = torso.Velocity.magnitude
+        local mv = 0.002
+        if wave then
+          ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+          wave = false
+        else
+          wave = true
+        end
+        ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+        motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+        motor.DesiredAngle = -ang
+        if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+          motor.MaxVelocity = 0.04
+        end
+        repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+        if torso.Velocity.magnitude < 0.1 then
+          wait(0.1)
+        end
+      until not CapeP or CapeP.Parent ~= torso.Parent
+    end
+end)
+local Section = Tab:NewSection("Lithium Lite Cape")
+Section:NewButton("Lithium Lite Cape", "ButtonInfo", function()
+    local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+if lplr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+      if lplr.Character:FindFirstChild("Torso") then
+        torso = lplr.Character.Torso
+      else
+        torso = lplr.Character.UpperTorso
+      end
+      local CapeP = Instance.new("Part", torso.Parent)
+      CapeP.Name = "Cape"
+      CapeP.Anchored = false
+      CapeP.CanCollide = false
+      CapeP.TopSurface = 0
+      CapeP.BottomSurface = 0
+      CapeP.Color = Color3.fromRGB(150,117,206)
+      CapeP.FormFactor = "Custom"
+      CapeP.Size = Vector3.new(0.2,0.2,0.2)
+      local decal = Instance.new("Decal", CapeP)
+      decal.Texture = "http://www.roblox.com/asset/?id=9685587041"
       decal.Face = "Back"
       local msh = Instance.new("BlockMesh", CapeP)
       msh.Scale = Vector3.new(9,17.5,0.5)
@@ -958,7 +2066,7 @@ wait(1)
 end
 end)
 
-Animation2:NewButton("Vampire", "Vampire Animation", function()
+Animation:NewButton("Vampire", "Vampire Animation", function()
     print("Vampire Animation Succesfull!")
     while true do
 
@@ -975,7 +2083,7 @@ wait(1)
 end
 end)
 
-Animation2:NewButton("Werewolf", "Werewolf Animation", function()
+Animation:NewButton("Werewolf", "Werewolf Animation", function()
     print("Werewolf Animation Succesfull!")
     while true do
 
