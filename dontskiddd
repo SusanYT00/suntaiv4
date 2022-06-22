@@ -29,6 +29,7 @@ local Updates = Updates:NewSection("Updates")
 
 Credits:NewLabel("Made by Setsunai#5884")
 Credits:NewLabel("Big credits to Jn Hh Gaming My Fav Yt")
+Credits:NewLabel("Credits to Sempiller")
 Credits:NewLabel("Credits to 7GrandDad")
 Credits:NewLabel("Credits to Syctro#0296")
 Credits:NewLabel("Credits to Moerii")
